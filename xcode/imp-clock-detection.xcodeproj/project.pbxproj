@@ -26,10 +26,42 @@
 		00FC79171C39731100160B80 /* libopencv_video.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC79051C39731100160B80 /* libopencv_video.2.4.12.dylib */; };
 		00FC79181C39731100160B80 /* libopencv_videostab.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC79061C39731100160B80 /* libopencv_videostab.2.4.12.dylib */; };
 		00FC791A1C39731D00160B80 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00FC79191C39731D00160B80 /* main.cpp */; };
+		00FC79261C3977FF00160B80 /* TimeCalculator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00FC79241C3977FF00160B80 /* TimeCalculator.cpp */; };
+		00FC792C1C397A7E00160B80 /* Time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00FC792A1C397A7E00160B80 /* Time.cpp */; };
+		00FC79301C39A38600160B80 /* Time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00FC792A1C397A7E00160B80 /* Time.cpp */; };
+		00FC79311C39A38600160B80 /* TimeCalculator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00FC79241C3977FF00160B80 /* TimeCalculator.cpp */; };
+		00FC79331C39A38600160B80 /* libopencv_photo.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC79021C39731100160B80 /* libopencv_photo.2.4.12.dylib */; };
+		00FC79341C39A38600160B80 /* libopencv_stitching.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC79031C39731100160B80 /* libopencv_stitching.2.4.12.dylib */; };
+		00FC79351C39A38600160B80 /* libopencv_gpu.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC78FA1C39731100160B80 /* libopencv_gpu.2.4.12.dylib */; };
+		00FC79361C39A38600160B80 /* libopencv_highgui.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC78FB1C39731100160B80 /* libopencv_highgui.2.4.12.dylib */; };
+		00FC79371C39A38600160B80 /* libopencv_flann.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC78F91C39731100160B80 /* libopencv_flann.2.4.12.dylib */; };
+		00FC79381C39A38600160B80 /* libopencv_features2d.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC78F81C39731100160B80 /* libopencv_features2d.2.4.12.dylib */; };
+		00FC79391C39A38600160B80 /* libopencv_video.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC79051C39731100160B80 /* libopencv_video.2.4.12.dylib */; };
+		00FC793A1C39A38600160B80 /* libopencv_objdetect.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC79001C39731100160B80 /* libopencv_objdetect.2.4.12.dylib */; };
+		00FC793B1C39A38600160B80 /* libopencv_calib3d.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC78F51C39731100160B80 /* libopencv_calib3d.2.4.12.dylib */; };
+		00FC793C1C39A38600160B80 /* libopencv_imgproc.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC78FC1C39731100160B80 /* libopencv_imgproc.2.4.12.dylib */; };
+		00FC793D1C39A38600160B80 /* libopencv_ml.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC78FE1C39731100160B80 /* libopencv_ml.2.4.12.dylib */; };
+		00FC793E1C39A38600160B80 /* libopencv_contrib.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC78F61C39731100160B80 /* libopencv_contrib.2.4.12.dylib */; };
+		00FC793F1C39A38600160B80 /* libopencv_legacy.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC78FD1C39731100160B80 /* libopencv_legacy.2.4.12.dylib */; };
+		00FC79401C39A38600160B80 /* libopencv_nonfree.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC78FF1C39731100160B80 /* libopencv_nonfree.2.4.12.dylib */; };
+		00FC79411C39A38600160B80 /* libopencv_core.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC78F71C39731100160B80 /* libopencv_core.2.4.12.dylib */; };
+		00FC79421C39A38600160B80 /* libopencv_superres.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC79041C39731100160B80 /* libopencv_superres.2.4.12.dylib */; };
+		00FC79431C39A38600160B80 /* libopencv_videostab.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC79061C39731100160B80 /* libopencv_videostab.2.4.12.dylib */; };
+		00FC79441C39A38600160B80 /* libopencv_ocl.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC79011C39731100160B80 /* libopencv_ocl.2.4.12.dylib */; };
+		00FC79521C39A41400160B80 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00FC79511C39A3EA00160B80 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		003D13A61C39722C00E6F2D2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		00FC79451C39A38600160B80 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -61,6 +93,12 @@
 		00FC79051C39731100160B80 /* libopencv_video.2.4.12.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_video.2.4.12.dylib; path = ../../../../../../usr/local/Cellar/opencv/2.4.12/lib/libopencv_video.2.4.12.dylib; sourceTree = "<group>"; };
 		00FC79061C39731100160B80 /* libopencv_videostab.2.4.12.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_videostab.2.4.12.dylib; path = ../../../../../../usr/local/Cellar/opencv/2.4.12/lib/libopencv_videostab.2.4.12.dylib; sourceTree = "<group>"; };
 		00FC79191C39731D00160B80 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../main.cpp; sourceTree = "<group>"; };
+		00FC79241C3977FF00160B80 /* TimeCalculator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimeCalculator.cpp; path = ../src/TimeCalculator.cpp; sourceTree = "<group>"; };
+		00FC79251C3977FF00160B80 /* TimeCalculator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TimeCalculator.hpp; path = ../src/TimeCalculator.hpp; sourceTree = "<group>"; };
+		00FC792A1C397A7E00160B80 /* Time.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Time.cpp; path = ../src/Time.cpp; sourceTree = "<group>"; };
+		00FC792B1C397A7E00160B80 /* Time.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Time.hpp; path = ../src/Time.hpp; sourceTree = "<group>"; };
+		00FC79491C39A38600160B80 /* TimeCalculatorExample */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TimeCalculatorExample; sourceTree = BUILT_PRODUCTS_DIR; };
+		00FC79511C39A3EA00160B80 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,12 +127,38 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		00FC79321C39A38600160B80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00FC79331C39A38600160B80 /* libopencv_photo.2.4.12.dylib in Frameworks */,
+				00FC79341C39A38600160B80 /* libopencv_stitching.2.4.12.dylib in Frameworks */,
+				00FC79351C39A38600160B80 /* libopencv_gpu.2.4.12.dylib in Frameworks */,
+				00FC79361C39A38600160B80 /* libopencv_highgui.2.4.12.dylib in Frameworks */,
+				00FC79371C39A38600160B80 /* libopencv_flann.2.4.12.dylib in Frameworks */,
+				00FC79381C39A38600160B80 /* libopencv_features2d.2.4.12.dylib in Frameworks */,
+				00FC79391C39A38600160B80 /* libopencv_video.2.4.12.dylib in Frameworks */,
+				00FC793A1C39A38600160B80 /* libopencv_objdetect.2.4.12.dylib in Frameworks */,
+				00FC793B1C39A38600160B80 /* libopencv_calib3d.2.4.12.dylib in Frameworks */,
+				00FC793C1C39A38600160B80 /* libopencv_imgproc.2.4.12.dylib in Frameworks */,
+				00FC793D1C39A38600160B80 /* libopencv_ml.2.4.12.dylib in Frameworks */,
+				00FC793E1C39A38600160B80 /* libopencv_contrib.2.4.12.dylib in Frameworks */,
+				00FC793F1C39A38600160B80 /* libopencv_legacy.2.4.12.dylib in Frameworks */,
+				00FC79401C39A38600160B80 /* libopencv_nonfree.2.4.12.dylib in Frameworks */,
+				00FC79411C39A38600160B80 /* libopencv_core.2.4.12.dylib in Frameworks */,
+				00FC79421C39A38600160B80 /* libopencv_superres.2.4.12.dylib in Frameworks */,
+				00FC79431C39A38600160B80 /* libopencv_videostab.2.4.12.dylib in Frameworks */,
+				00FC79441C39A38600160B80 /* libopencv_ocl.2.4.12.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		003D139F1C39722C00E6F2D2 = {
 			isa = PBXGroup;
 			children = (
+				00FC794F1C39A3EA00160B80 /* examples */,
 				00FC791B1C3973A700160B80 /* src */,
 				00FC78F51C39731100160B80 /* libopencv_calib3d.2.4.12.dylib */,
 				00FC78F61C39731100160B80 /* libopencv_contrib.2.4.12.dylib */,
@@ -122,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				003D13A81C39722C00E6F2D2 /* imp-clock-detection */,
+				00FC79491C39A38600160B80 /* TimeCalculatorExample */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,8 +195,29 @@
 			isa = PBXGroup;
 			children = (
 				00FC79191C39731D00160B80 /* main.cpp */,
+				00FC79241C3977FF00160B80 /* TimeCalculator.cpp */,
+				00FC79251C3977FF00160B80 /* TimeCalculator.hpp */,
+				00FC792A1C397A7E00160B80 /* Time.cpp */,
+				00FC792B1C397A7E00160B80 /* Time.hpp */,
 			);
 			name = src;
+			sourceTree = "<group>";
+		};
+		00FC794F1C39A3EA00160B80 /* examples */ = {
+			isa = PBXGroup;
+			children = (
+				00FC79501C39A3EA00160B80 /* time-calculator */,
+			);
+			name = examples;
+			path = ../examples;
+			sourceTree = "<group>";
+		};
+		00FC79501C39A3EA00160B80 /* time-calculator */ = {
+			isa = PBXGroup;
+			children = (
+				00FC79511C39A3EA00160B80 /* main.cpp */,
+			);
+			path = "time-calculator";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +238,23 @@
 			name = "imp-clock-detection";
 			productName = "imp-clock-detection";
 			productReference = 003D13A81C39722C00E6F2D2 /* imp-clock-detection */;
+			productType = "com.apple.product-type.tool";
+		};
+		00FC792D1C39A38600160B80 /* TimeCalculatorExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00FC79461C39A38600160B80 /* Build configuration list for PBXNativeTarget "TimeCalculatorExample" */;
+			buildPhases = (
+				00FC792E1C39A38600160B80 /* Sources */,
+				00FC79321C39A38600160B80 /* Frameworks */,
+				00FC79451C39A38600160B80 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TimeCalculatorExample;
+			productName = "imp-clock-detection";
+			productReference = 00FC79491C39A38600160B80 /* TimeCalculatorExample */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -181,6 +284,7 @@
 			projectRoot = "";
 			targets = (
 				003D13A71C39722C00E6F2D2 /* imp-clock-detection */,
+				00FC792D1C39A38600160B80 /* TimeCalculatorExample */,
 			);
 		};
 /* End PBXProject section */
@@ -191,6 +295,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				00FC791A1C39731D00160B80 /* main.cpp in Sources */,
+				00FC792C1C397A7E00160B80 /* Time.cpp in Sources */,
+				00FC79261C3977FF00160B80 /* TimeCalculator.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00FC792E1C39A38600160B80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00FC79521C39A41400160B80 /* main.cpp in Sources */,
+				00FC79301C39A38600160B80 /* Time.cpp in Sources */,
+				00FC79311C39A38600160B80 /* TimeCalculator.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +416,30 @@
 			};
 			name = Release;
 		};
+		00FC79471C39A38600160B80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					/usr/local/Cellar/opencv/2.4.12/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		00FC79481C39A38600160B80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					/usr/local/Cellar/opencv/2.4.12/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -317,6 +457,15 @@
 			buildConfigurations = (
 				003D13B01C39722C00E6F2D2 /* Debug */,
 				003D13B11C39722C00E6F2D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00FC79461C39A38600160B80 /* Build configuration list for PBXNativeTarget "TimeCalculatorExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00FC79471C39A38600160B80 /* Debug */,
+				00FC79481C39A38600160B80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
