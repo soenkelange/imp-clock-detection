@@ -24,7 +24,7 @@ Time TimeCalculator::calculcateTime(cv::Point2d clockMiddle, cv::Point2d clockTo
     double clockTopAndBigHandTop = calculateDegress(clockTop, bigHandTop);
     double degressPerMinute = 360 / 60;
     double minute = clockTopAndBigHandTop / degressPerMinute;
-    return Time(hour, round(minute));
+    return Time(hour, minute);
 }
 
 double TimeCalculator::calculateDegress(cv::Point2d a1, cv::Point2d a2)
@@ -51,5 +51,5 @@ double TimeCalculator::calculateVectorLength(cv::Point2d v)
 double TimeCalculator::radian2Degress(double d)
 {
     std::cout << "radian2Degress: " << d << std::endl;
-    return d * 180 / 3.14159265359;
+    return d * 180 / 3.141592653589793238463;
 }
