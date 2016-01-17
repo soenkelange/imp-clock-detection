@@ -18,10 +18,20 @@ TimeCalculator::~TimeCalculator()
 Time TimeCalculator::calculcateTime(cv::Point2d clockMiddle, cv::Point2d clockTop, cv::Point2d bigHandTop, cv::Point2d smallHandTop)
 {
     double clockTopAndSmallHandTop = calculateDegress(clockTop, smallHandTop);
+    int smallHandPosition = (clockMiddle.x - clockTop.x) * (smallHandTop.y - clockTop.y) - (clockMiddle.y - clockTop.y) * (smallHandTop.x - clockTop.x);
+    std::cout << "Small Hand Position: " << smallHandPosition << std::endl;
+    if (smallHandPosition < 0) {
+        clockTopAndSmallHandTop = 180 + (180 - clockTopAndSmallHandTop);
+    }
     double degressPerHour = 360 / 12;
     double hour = clockTopAndSmallHandTop / degressPerHour;
     
     double clockTopAndBigHandTop = calculateDegress(clockTop, bigHandTop);
+    int bigHandPosition = (clockMiddle.x - clockTop.x) * (bigHandTop.y - clockTop.y) - (clockMiddle.y - clockTop.y) * (bigHandTop.x - clockTop.x);
+    std::cout << "Big Hand Position: " << bigHandPosition << std::endl;
+    if (bigHandPosition < 0) {
+        clockTopAndBigHandTop = 180 + (180 - clockTopAndBigHandTop);
+    }
     double degressPerMinute = 360 / 60;
     double minute = clockTopAndBigHandTop / degressPerMinute;
     return Time(hour, minute);
