@@ -1,20 +1,19 @@
 #ifndef Time_hpp
 #define Time_hpp
 
-#include <stdio.h>
-
 class Time {
     
 public:
-    Time(int hour, int minute);
+    Time(double hour, double minute);
     ~Time();
     
-    int getHour();
-    int getMinute();
+    int getHour() const;
+    int getMinute() const;
+    void output() const;
     
 private:
-    int _hour;
-    int _minute;
+    double _hour;
+    double _minute;
 };
 
 #endif /* Time_hpp */
