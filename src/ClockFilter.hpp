@@ -6,7 +6,7 @@
 class ClockFilter
 {
 public:
-    virtual ~ClockFilter() = 0;
+    virtual ~ClockFilter() {};
     virtual void process(const cv::Mat& input) = 0;
     virtual cv::Point getBigHandPosition() const = 0;
     virtual cv::Point getSmallHandPosition() const = 0;

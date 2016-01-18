@@ -15,7 +15,7 @@
 class TimeOutput
 {
 public:
-    virtual ~TimeOutput() = 0;
+    virtual ~TimeOutput() {};
     virtual void output(const Time& time) = 0;
 };
 
