@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00E03D611C4D81D400213F72 /* StupidClockFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00E03D5F1C4D81D400213F72 /* StupidClockFilter.cpp */; };
+		00E03D651C4D856700213F72 /* TimeLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00E03D631C4D856700213F72 /* TimeLogger.cpp */; };
 		00FC79071C39731100160B80 /* libopencv_calib3d.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC78F51C39731100160B80 /* libopencv_calib3d.2.4.12.dylib */; };
 		00FC79081C39731100160B80 /* libopencv_contrib.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC78F61C39731100160B80 /* libopencv_contrib.2.4.12.dylib */; };
 		00FC79091C39731100160B80 /* libopencv_core.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC78F71C39731100160B80 /* libopencv_core.2.4.12.dylib */; };
@@ -74,6 +76,12 @@
 
 /* Begin PBXFileReference section */
 		003D13A81C39722C00E6F2D2 /* imp-clock-detection */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "imp-clock-detection"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E03D5E1C4D809E00213F72 /* ClockFilter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ClockFilter.hpp; path = ../src/ClockFilter.hpp; sourceTree = "<group>"; };
+		00E03D5F1C4D81D400213F72 /* StupidClockFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StupidClockFilter.cpp; path = ../src/StupidClockFilter.cpp; sourceTree = "<group>"; };
+		00E03D601C4D81D400213F72 /* StupidClockFilter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = StupidClockFilter.hpp; path = ../src/StupidClockFilter.hpp; sourceTree = "<group>"; };
+		00E03D621C4D84F800213F72 /* TimeOutput.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TimeOutput.hpp; path = ../src/TimeOutput.hpp; sourceTree = "<group>"; };
+		00E03D631C4D856700213F72 /* TimeLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimeLogger.cpp; path = ../src/TimeLogger.cpp; sourceTree = "<group>"; };
+		00E03D641C4D856700213F72 /* TimeLogger.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TimeLogger.hpp; path = ../src/TimeLogger.hpp; sourceTree = "<group>"; };
 		00FC78F51C39731100160B80 /* libopencv_calib3d.2.4.12.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_calib3d.2.4.12.dylib; path = ../../../../../../usr/local/Cellar/opencv/2.4.12/lib/libopencv_calib3d.2.4.12.dylib; sourceTree = "<group>"; };
 		00FC78F61C39731100160B80 /* libopencv_contrib.2.4.12.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_contrib.2.4.12.dylib; path = ../../../../../../usr/local/Cellar/opencv/2.4.12/lib/libopencv_contrib.2.4.12.dylib; sourceTree = "<group>"; };
 		00FC78F71C39731100160B80 /* libopencv_core.2.4.12.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.2.4.12.dylib; path = ../../../../../../usr/local/Cellar/opencv/2.4.12/lib/libopencv_core.2.4.12.dylib; sourceTree = "<group>"; };
@@ -199,6 +207,12 @@
 				00FC79251C3977FF00160B80 /* TimeCalculator.hpp */,
 				00FC792A1C397A7E00160B80 /* Time.cpp */,
 				00FC792B1C397A7E00160B80 /* Time.hpp */,
+				00E03D5E1C4D809E00213F72 /* ClockFilter.hpp */,
+				00E03D5F1C4D81D400213F72 /* StupidClockFilter.cpp */,
+				00E03D601C4D81D400213F72 /* StupidClockFilter.hpp */,
+				00E03D621C4D84F800213F72 /* TimeOutput.hpp */,
+				00E03D631C4D856700213F72 /* TimeLogger.cpp */,
+				00E03D641C4D856700213F72 /* TimeLogger.hpp */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -295,7 +309,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				00FC791A1C39731D00160B80 /* main.cpp in Sources */,
+				00E03D611C4D81D400213F72 /* StupidClockFilter.cpp in Sources */,
 				00FC792C1C397A7E00160B80 /* Time.cpp in Sources */,
+				00E03D651C4D856700213F72 /* TimeLogger.cpp in Sources */,
 				00FC79261C3977FF00160B80 /* TimeCalculator.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
