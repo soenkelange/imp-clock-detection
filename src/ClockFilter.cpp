@@ -39,7 +39,7 @@ static double angle(Point pt1, Point pt2, Point pt0)
 
 void ClockFilter::process(const cv::Mat& input)
 {
-	while (1){
+
 		Mat cameraFrame = input;
 		vector<Mat> rgb;
 		Mat cameraFrameCircle;
@@ -252,7 +252,7 @@ void ClockFilter::process(const cv::Mat& input)
 		
 		cv::imshow("Debug", cameraFrameCircle);
 
-	}
+	
 }
 
 cv::Point ClockFilter::getBigHandPosition() const
