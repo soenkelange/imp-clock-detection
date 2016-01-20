@@ -2,7 +2,7 @@
 #define StupidClockFilter_hpp
 
 #include <stdio.h>
-#include "ClockFilter.hpp"
+#include "ClockFilter.h"
 
 class StupidClockFilter : public ClockFilter
 {
