@@ -17,6 +17,11 @@ TimeCalculator::~TimeCalculator()
 
 Time TimeCalculator::calculcateTime(cv::Point2d clockMiddle, cv::Point2d clockTop, cv::Point2d bigHandTop, cv::Point2d smallHandTop)
 {
+    clockTop = transformCoordinates(clockMiddle, clockTop);
+    bigHandTop = transformCoordinates(clockMiddle, bigHandTop);
+    smallHandTop = transformCoordinates(clockMiddle, smallHandTop);
+    clockMiddle = transformCoordinates(clockMiddle, clockMiddle);
+    
     double clockTopAndSmallHandTop = calculateDegress(clockTop, smallHandTop);
     int smallHandPosition = (clockMiddle.x - clockTop.x) * (smallHandTop.y - clockTop.y) - (clockMiddle.y - clockTop.y) * (smallHandTop.x - clockTop.x);
     std::cout << "Small Hand Position: " << smallHandPosition << std::endl;
@@ -61,5 +66,12 @@ double TimeCalculator::calculateVectorLength(cv::Point2d v)
 double TimeCalculator::radian2Degress(double d)
 {
     std::cout << "radian2Degress: " << d << std::endl;
-    return d * 180 / 3.141592653589793238463;
+    return d * 180 / M_PI;
+}
+
+cv::Point2d TimeCalculator::transformCoordinates(cv::Point2d zero, cv::Point2d point)
+{
+    point = point - zero;
+    point.y = point.y * -1;
+    return point;
 }

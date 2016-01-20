@@ -18,6 +18,7 @@ private:
     double calculateScalarProduct(cv::Point2d a1, cv::Point2d a2);
     double calculateVectorLength(cv::Point2d v);
     double radian2Degress(double d);
+    cv::Point2d transformCoordinates(cv::Point2d zero, cv::Point2d point);
 };
 
 #endif /* TimeCalculator_hpp */
