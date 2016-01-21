@@ -1,4 +1,4 @@
-#include "StupidClockFilter.hpp"
+#include "ClockFilterImpl.hpp"
 #include "TimeCalculator.hpp"
 #include "TimeLogger.hpp"
 
@@ -11,7 +11,9 @@ enum VideoSource {
     VIDEO_FILE
 };
 
+const bool debug = true;
 const cv::string& sourceWindow = "Source";
+const cv::string& outputWindow = "Output";
 
 VideoSource readVideoSource();
 cv::string readVideoFilename();
@@ -32,13 +34,16 @@ int main(int argc, char *argv[])
         return -1;
     }
     
-    ClockFilter* filter = new StupidClockFilter; // TODO: Add correct ClockFilter here
+    ClockFilter* filter = new ClockFilterImpl;
     TimeCalculator* timeCalculator = new TimeCalculator();
     TimeOutput* timeOutput = new TimeLogger(); // TODO: Add correct TimeOutput here
     
     while (1) {
         cv::Mat inputFrame;
         videoCapture.read(inputFrame);
+        cv::Mat outputFrame;
+        inputFrame.copyTo(outputFrame);
+        
         
         // filter clock
         filter->process(inputFrame);
@@ -50,10 +55,18 @@ int main(int argc, char *argv[])
         // calculate time
         Time time = timeCalculator->calculcateTime(clockMiddle, clockTop, bigHandTop, smallHandTop);
         
+        if (debug) {
+            cv::circle(outputFrame, clockMiddle, 100, cv::Scalar(255,0,0));
+            cv::circle(outputFrame, clockTop, 100, cv::Scalar(0,255,0));
+            cv::circle(outputFrame, bigHandTop, 100, cv::Scalar(0,0,255));
+            cv::circle(outputFrame, smallHandTop, 100, cv::Scalar(0,255,255));
+        }
+        
         // output time
         timeOutput->output(time);
         
         cv::imshow(sourceWindow, inputFrame);
+        cv::imshow(outputWindow, outputFrame);
         
         if(cv::waitKey(30) >= 0) {
             break;
