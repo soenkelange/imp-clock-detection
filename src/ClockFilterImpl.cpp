@@ -46,11 +46,7 @@ void ClockFilterImpl::process(const cv::Mat& input)
 	Mat cameraGray;
 	Mat cameraThreshold;
 	Mat cameraGrayBlurred;
-	Mat cameraLines;
 	Mat canny;
-	Mat canny1;
-	Mat cannyGray;
-	Mat circleInside;
 
 	//farbkonvertierung nach grau
 	cvtColor(cameraFrame, cameraGray, CV_BGR2GRAY);
@@ -60,11 +56,8 @@ void ClockFilterImpl::process(const cv::Mat& input)
 	GaussianBlur(cameraGray, cameraGrayBlurred, Size(9, 9), 2, 2);
 	//arrays für die kreise
 	vector<Vec3f> circles;
-
 	//erkennen der kreise mittels houghcircle
-	//evtl nicht blurred
 	HoughCircles(cameraGrayBlurred, circles, CV_HOUGH_GRADIENT, 1, cameraGrayBlurred.rows / 8, 200, 100, cameraGrayBlurred.rows / 4, cameraGrayBlurred.cols * 2);
-
 	//einzeichnen der kreise
 	if (!circles.empty()){
 		for (size_t i = 0; i < circles.size(); i++){
@@ -76,53 +69,42 @@ void ClockFilterImpl::process(const cv::Mat& input)
 			circle(cameraFrameCircle, center, 3, Scalar(0, 255, 0), -1, 8, 0);
 			// kreis einzeichnen
 			circle(cameraFrameCircle, center, radius, Scalar(0, 0, 255), 3, 8, 0);
-
-
 			//aktualisieren des uhrmittelpunkts
 			clockCenterPosition = center;
 			auswahlRadius = radius;
 		}
 	}
 
-	//get lines		
+	//helligkeit des blauen bildanteils weiterbearbeiten für die findContours funktion
 	Canny(rgb[0], canny, 150, 200, 3);
-	//blur(rgb[0], rgb[0], Size(3, 3));
-
-	Canny(rgb[0], canny1, 150, 200, 3);
-
 	dilate(canny, canny, Mat(), Point(-1, -1));
-	dilate(canny1, canny1, Mat(), Point(-1, -1));
 
 	//find contours
-	vector<vector<Point>> triContours;
-	vector<vector<Point>> quadContours;
+	vector<vector<Point>> contours;
 
-	findContours(canny, triContours, CV_RETR_LIST, CV_CHAIN_APPROX_SIMPLE);
-	findContours(canny1, quadContours, CV_RETR_LIST, CV_CHAIN_APPROX_SIMPLE);
+	findContours(canny, contours, CV_RETR_LIST, CV_CHAIN_APPROX_SIMPLE);
 
 	// The array for storing the approximation curve
-	vector<Point> triApprox;
-	vector<Point> quadApprox;
-
+	vector<Point> approx;
 
 	Point centerOfTriangle(0, 0);
 	Point centerOfBigHand(0, 0);
 	Point centerOfSmallHand(0, 0);
 
 	int largestArea = 0;
-	for (size_t i = 0; i < triContours.size(); i++) {
-		approxPolyDP(Mat(triContours[i]), triApprox, arcLength(Mat(triContours[i]), true)*0.02, true);
+	for (size_t i = 0; i < contours.size(); i++) {
+		approxPolyDP(Mat(contours[i]), approx, arcLength(Mat(contours[i]), true)*0.02, true);
 		if (//genau drei ecken
-			triApprox.size() == 3
+			approx.size() == 3
 			//fläche des dreiecks
-			&& fabs(contourArea(Mat(triApprox))) > 0.2*auswahlRadius    //300
-			&& fabs(contourArea(Mat(triApprox))) < 3.5*auswahlRadius	   //1500	
+			&& fabs(contourArea(Mat(approx))) > 1.8*auswahlRadius    //300
+			&& fabs(contourArea(Mat(approx))) < 2.5*auswahlRadius	   //1500	
 			//ist das dreieck geschlossen
-			&& isContourConvex(Mat(triApprox))
+			&& isContourConvex(Mat(approx))
 			) {
-			for (size_t i = 0; i < triApprox.size(); i++){
-				centerOfTriangle.x += triApprox[i].x;
-				centerOfTriangle.y += triApprox[i].y;
+			for (size_t i = 0; i < approx.size(); i++){
+				centerOfTriangle.x += approx[i].x;
+				centerOfTriangle.y += approx[i].y;
 			}
 			centerOfTriangle.x /= 3;
 			centerOfTriangle.y /= 3;
@@ -130,127 +112,90 @@ void ClockFilterImpl::process(const cv::Mat& input)
 
 				cout << "centeroftriangle: ";
 				cout << centerOfTriangle << endl;
-				cout << "triangleArea " << contourArea(Mat(triApprox)) << endl;
+				cout << "triangleArea " << contourArea(Mat(approx)) << endl;
 				cout << "auswahlradius" << auswahlRadius << endl;
 				cout << endl;
-
-
 				clockTopPosition = centerOfTriangle;
 			}
-		}
-	}
-	circle(cameraFrameCircle, centerOfTriangle, 3, Scalar(0, 255, 0), -1, 8, 0);
-
-	for (size_t i = 0; i < quadContours.size(); i++) {
-		approxPolyDP(Mat(quadContours[i]), quadApprox, arcLength(Mat(quadContours[i]), true)*0.02, true);
-
-		if (//genau vier ecken
-			quadApprox.size() == 4
+		
+		}else if (//genau vier ecken für bighand
+			approx.size() == 4
 			//fläche des vierecks
-			&& fabs(contourArea(Mat(quadApprox))) >	10 * auswahlRadius // 400
-			&& fabs(contourArea(Mat(quadApprox))) < 15 * auswahlRadius
+			&& fabs(contourArea(Mat(approx))) >	10 * auswahlRadius // 400
+			&& fabs(contourArea(Mat(approx))) < 15 * auswahlRadius
 			//ist das viereck geschlossen
-			&& isContourConvex(Mat(quadApprox))
+			&& isContourConvex(Mat(approx))
 			) {
 			double maxCosine = 0;
-
-			for (int j = 2; j < 5; j++)
-			{
+			for (int j = 2; j < 5; j++){
 				// find the maximum cosine of the angle between joint edges
-				double cosine = fabs(angle(quadApprox[j % 4], quadApprox[j - 2], quadApprox[j - 1]));
+				double cosine = fabs(angle(approx[j % 4], approx[j - 2], approx[j - 1]));
 				maxCosine = MAX(maxCosine, cosine);
 			}
-
-			// if cosines of all angles are small
-			// (all angles are ~90 degree) then write quandrange
-			// vertices to resultant sequence
 			if (maxCosine < 0.3){
-				for (size_t i = 0; i < quadApprox.size(); i++){
-					centerOfBigHand.x += quadApprox[i].x;
-					centerOfBigHand.y += quadApprox[i].y;
+				for (size_t i = 0; i < approx.size(); i++){
+					centerOfBigHand.x += approx[i].x;
+					centerOfBigHand.y += approx[i].y;
 				}
 				centerOfBigHand.x /= 4;
 				centerOfBigHand.y /= 4;
 				if (isPointInCircle(centerOfBigHand)){
 					cout << "centerOfBigHand: ";
 					cout << centerOfBigHand << endl;
-					cout << "quadarea " << contourArea(Mat(quadApprox)) << endl;
+					cout << "quadarea " << contourArea(Mat(approx)) << endl;
 					cout << "auswahlradius: " << auswahlRadius << endl;
 					cout << endl;
-
-
 					bigHandPosition = centerOfBigHand;
 				}
 			}
-
 		}
-		else if (
-			//genau vier ecken
-			quadApprox.size() == 4
+		else if ( //genau vier ecken für smallhand
+			approx.size() == 4
 			//fläche des vierecks
-			&& fabs(contourArea(Mat(quadApprox))) > 3 * auswahlRadius // 400
-			&& fabs(contourArea(Mat(quadApprox))) < 9 * auswahlRadius
+			&& fabs(contourArea(Mat(approx))) > 5 * auswahlRadius // 400
+			&& fabs(contourArea(Mat(approx))) < 9 * auswahlRadius
 			//ist das viereck geschlossen
-			&& isContourConvex(Mat(quadApprox))
+			&& isContourConvex(Mat(approx))
 			) {
 			double maxCosine = 0;
-
-			for (int j = 2; j < 5; j++)
-			{
-				// find the maximum cosine of the angle between joint edges
-				double cosine = fabs(angle(quadApprox[j % 4], quadApprox[j - 2], quadApprox[j - 1]));
+			for (int j = 2; j < 5; j++){
+				//berechnen des maximalen cosinus in den ecken
+				double cosine = fabs(angle(approx[j % 4], approx[j - 2], approx[j - 1]));
 				maxCosine = MAX(maxCosine, cosine);
 			}
-
-			// if cosines of all angles are small
-			// (all angles are ~90 degree) then write quandrange
-			// vertices to resultant sequence
 			if (maxCosine < 0.3){
-
-				for (size_t i = 0; i < quadApprox.size(); i++){
-					centerOfSmallHand.x += quadApprox[i].x;
-					centerOfSmallHand.y += quadApprox[i].y;
+				for (size_t i = 0; i < approx.size(); i++){
+					centerOfSmallHand.x += approx[i].x;
+					centerOfSmallHand.y += approx[i].y;
 				}
 				centerOfSmallHand.x /= 4;
 				centerOfSmallHand.y /= 4;
 				if (isPointInCircle(centerOfSmallHand)){
-
-
 					cout << "centerOfSmallHand: ";
 					cout << centerOfSmallHand << endl;
-					cout << "quadarea " << contourArea(Mat(quadApprox)) << endl;
+					cout << "quadarea " << contourArea(Mat(approx)) << endl;
 					cout << "auswahlradius: " << auswahlRadius << endl;
 					cout << endl;
-
-
 					smallHandPosition = centerOfSmallHand;
 				}
 			}
 		}
-	}
-
+	}	
+	
 	//Einzeichnen der Debugging punkte auf den zeigern
-	circle(cameraFrameCircle, centerOfSmallHand, 3, Scalar(0, 255, 255), -1, 8, 0);
 
+	circle(cameraFrameCircle, centerOfTriangle, 3, Scalar(0, 255, 0), -1, 8, 0);
+	circle(cameraFrameCircle, centerOfSmallHand, 3, Scalar(0, 255, 255), -1, 8, 0);
 	circle(cameraFrameCircle, centerOfBigHand, 3, Scalar(0, 0, 255), -1, 8, 0);
 
 
 	//debugging bildausgaben
-
-	//	imshow("cam", cameraFrame);
-	//	imshow("camGray", cameraGray);
-	imshow("cameraFrameCircle", cameraFrameCircle);
-	//	imshow("camLines", cameraLines);
-	//	imshow("circle inside", circleInside);
 	imshow("canny", canny);
 	//	imshow("red", rgb[2]);
 	//	imshow("green",rgb[1]);
 	//	imshow("blue",rgb[0]);
-	imshow("canny rbg 0", canny1);
 
-
-
-	cv::imshow("Debug", cameraFrameCircle);
+	//cv::imshow("Debug", cameraFrameCircle);
 
 
 }
