@@ -44,9 +44,12 @@ int main(int argc, char *argv[])
         if (!paused) {
             cv::Mat inputFrame;
             videoCapture.read(inputFrame);
+            if (inputFrame.empty()) {
+                break;
+            }
+            
             cv::Mat outputFrame;
             inputFrame.copyTo(outputFrame);
-            
             
             // filter clock
             filter->process(inputFrame);
