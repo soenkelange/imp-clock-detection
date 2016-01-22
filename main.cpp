@@ -62,10 +62,14 @@ int main(int argc, char *argv[])
             Time time = timeCalculator->calculcateTime(clockMiddle, clockTop, bigHandTop, smallHandTop);
             
             if (debug) {
-                cv::circle(outputFrame, clockMiddle, 100, cv::Scalar(255,0,0));            // BLUE
-                cv::circle(outputFrame, clockTop, 100, cv::Scalar(0,255,0));         // GREEN
-                cv::circle(outputFrame, smallHandTop, 100, cv::Scalar(0,0,255));            // RED
-                cv::circle(outputFrame, bigHandTop, 100, cv::Scalar(0,255,255));        // YELLOW
+                cv::circle(outputFrame, clockMiddle, 30, cv::Scalar(255,0,0));            // BLUE
+                cv::putText(outputFrame, "M", clockMiddle, cv::FONT_HERSHEY_DUPLEX, 1, cv::Scalar(255,0,0));
+                cv::circle(outputFrame, clockTop, 30, cv::Scalar(0,255,0));         // GREEN
+                cv::putText(outputFrame, "T", clockTop, cv::FONT_HERSHEY_DUPLEX, 1, cv::Scalar(0,255,0));
+                cv::circle(outputFrame, smallHandTop, 30, cv::Scalar(0,0,255));            // RED
+                cv::putText(outputFrame, "S", smallHandTop, cv::FONT_HERSHEY_DUPLEX, 1, cv::Scalar(0,0,255));
+                cv::circle(outputFrame, bigHandTop, 30, cv::Scalar(0,255,255));        // YELLOW
+                cv::putText(outputFrame, "B", bigHandTop, cv::FONT_HERSHEY_DUPLEX, 1, cv::Scalar(0,255,255));
             }
             
             // output time
