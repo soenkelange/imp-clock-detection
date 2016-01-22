@@ -11,7 +11,6 @@ enum VideoSource {
     VIDEO_FILE
 };
 
-const bool debug = true;
 const cv::string& sourceWindow = "Source";
 const cv::string& outputWindow = "Output";
 
@@ -40,6 +39,7 @@ int main(int argc, char *argv[])
     
     
     bool paused = false;
+    bool debug = false;
     while (1) {
         if (!paused) {
             cv::Mat inputFrame;
@@ -82,6 +82,8 @@ int main(int argc, char *argv[])
             break;
         } else if (waitKey == 112) {
             paused = !paused;
+        } else if (waitKey == 100){
+            debug = !debug;
         }
     }
     delete filter;
