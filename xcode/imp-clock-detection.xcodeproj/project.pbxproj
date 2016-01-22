@@ -11,6 +11,7 @@
 		0079E1C21C51B2AD00B1B455 /* TimeTextOutput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0079E1C01C51B2AD00B1B455 /* TimeTextOutput.cpp */; };
 		00E03D611C4D81D400213F72 /* StupidClockFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00E03D5F1C4D81D400213F72 /* StupidClockFilter.cpp */; };
 		00E03D651C4D856700213F72 /* TimeLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00E03D631C4D856700213F72 /* TimeLogger.cpp */; };
+		00ECE8CC1C5229E40006E332 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00ECE8CB1C5229E40006E332 /* main.cpp */; };
 		00FC79071C39731100160B80 /* libopencv_calib3d.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC78F51C39731100160B80 /* libopencv_calib3d.2.4.12.dylib */; };
 		00FC79081C39731100160B80 /* libopencv_contrib.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC78F61C39731100160B80 /* libopencv_contrib.2.4.12.dylib */; };
 		00FC79091C39731100160B80 /* libopencv_core.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC78F71C39731100160B80 /* libopencv_core.2.4.12.dylib */; };
@@ -29,7 +30,6 @@
 		00FC79161C39731100160B80 /* libopencv_superres.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC79041C39731100160B80 /* libopencv_superres.2.4.12.dylib */; };
 		00FC79171C39731100160B80 /* libopencv_video.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC79051C39731100160B80 /* libopencv_video.2.4.12.dylib */; };
 		00FC79181C39731100160B80 /* libopencv_videostab.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC79061C39731100160B80 /* libopencv_videostab.2.4.12.dylib */; };
-		00FC791A1C39731D00160B80 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00FC79191C39731D00160B80 /* main.cpp */; };
 		00FC79261C3977FF00160B80 /* TimeCalculator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00FC79241C3977FF00160B80 /* TimeCalculator.cpp */; };
 		00FC792C1C397A7E00160B80 /* Time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00FC792A1C397A7E00160B80 /* Time.cpp */; };
 		00FC79301C39A38600160B80 /* Time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00FC792A1C397A7E00160B80 /* Time.cpp */; };
@@ -88,6 +88,7 @@
 		00E03D621C4D84F800213F72 /* TimeOutput.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TimeOutput.hpp; path = ../src/TimeOutput.hpp; sourceTree = "<group>"; };
 		00E03D631C4D856700213F72 /* TimeLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimeLogger.cpp; path = ../src/TimeLogger.cpp; sourceTree = "<group>"; };
 		00E03D641C4D856700213F72 /* TimeLogger.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TimeLogger.hpp; path = ../src/TimeLogger.hpp; sourceTree = "<group>"; };
+		00ECE8CB1C5229E40006E332 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../src/main.cpp; sourceTree = "<group>"; };
 		00FC78F51C39731100160B80 /* libopencv_calib3d.2.4.12.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_calib3d.2.4.12.dylib; path = ../../../../../../usr/local/Cellar/opencv/2.4.12/lib/libopencv_calib3d.2.4.12.dylib; sourceTree = "<group>"; };
 		00FC78F61C39731100160B80 /* libopencv_contrib.2.4.12.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_contrib.2.4.12.dylib; path = ../../../../../../usr/local/Cellar/opencv/2.4.12/lib/libopencv_contrib.2.4.12.dylib; sourceTree = "<group>"; };
 		00FC78F71C39731100160B80 /* libopencv_core.2.4.12.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.2.4.12.dylib; path = ../../../../../../usr/local/Cellar/opencv/2.4.12/lib/libopencv_core.2.4.12.dylib; sourceTree = "<group>"; };
@@ -106,7 +107,6 @@
 		00FC79041C39731100160B80 /* libopencv_superres.2.4.12.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_superres.2.4.12.dylib; path = ../../../../../../usr/local/Cellar/opencv/2.4.12/lib/libopencv_superres.2.4.12.dylib; sourceTree = "<group>"; };
 		00FC79051C39731100160B80 /* libopencv_video.2.4.12.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_video.2.4.12.dylib; path = ../../../../../../usr/local/Cellar/opencv/2.4.12/lib/libopencv_video.2.4.12.dylib; sourceTree = "<group>"; };
 		00FC79061C39731100160B80 /* libopencv_videostab.2.4.12.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_videostab.2.4.12.dylib; path = ../../../../../../usr/local/Cellar/opencv/2.4.12/lib/libopencv_videostab.2.4.12.dylib; sourceTree = "<group>"; };
-		00FC79191C39731D00160B80 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../main.cpp; sourceTree = "<group>"; };
 		00FC79241C3977FF00160B80 /* TimeCalculator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimeCalculator.cpp; path = ../src/TimeCalculator.cpp; sourceTree = "<group>"; };
 		00FC79251C3977FF00160B80 /* TimeCalculator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TimeCalculator.hpp; path = ../src/TimeCalculator.hpp; sourceTree = "<group>"; };
 		00FC792A1C397A7E00160B80 /* Time.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Time.cpp; path = ../src/Time.cpp; sourceTree = "<group>"; };
@@ -208,10 +208,10 @@
 		00FC791B1C3973A700160B80 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				00ECE8CB1C5229E40006E332 /* main.cpp */,
 				0013B5AE1C51052E00641155 /* ClockFilter.h */,
 				0013B5AF1C51052E00641155 /* ClockFilterImpl.cpp */,
 				0013B5B01C51052E00641155 /* ClockFilterImpl.hpp */,
-				00FC79191C39731D00160B80 /* main.cpp */,
 				00FC79241C3977FF00160B80 /* TimeCalculator.cpp */,
 				00FC79251C3977FF00160B80 /* TimeCalculator.hpp */,
 				00FC792A1C397A7E00160B80 /* Time.cpp */,
@@ -318,11 +318,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00FC791A1C39731D00160B80 /* main.cpp in Sources */,
 				0079E1C21C51B2AD00B1B455 /* TimeTextOutput.cpp in Sources */,
 				00E03D611C4D81D400213F72 /* StupidClockFilter.cpp in Sources */,
 				00FC792C1C397A7E00160B80 /* Time.cpp in Sources */,
 				00E03D651C4D856700213F72 /* TimeLogger.cpp in Sources */,
+				00ECE8CC1C5229E40006E332 /* main.cpp in Sources */,
 				0013B5B11C51052E00641155 /* ClockFilterImpl.cpp in Sources */,
 				00FC79261C3977FF00160B80 /* TimeCalculator.cpp in Sources */,
 			);
