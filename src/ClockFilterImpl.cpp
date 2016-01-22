@@ -109,12 +109,6 @@ void ClockFilterImpl::process(const cv::Mat& input)
 			centerOfTriangle.x /= 3;
 			centerOfTriangle.y /= 3;
 			if (isPointInCircle(centerOfTriangle)){
-
-				cout << "centeroftriangle: ";
-				cout << centerOfTriangle << endl;
-				cout << "triangleArea " << contourArea(Mat(approx)) << endl;
-				cout << "auswahlradius" << auswahlRadius << endl;
-				cout << endl;
 				clockTopPosition = centerOfTriangle;
 			}
 		
@@ -140,11 +134,6 @@ void ClockFilterImpl::process(const cv::Mat& input)
 				centerOfBigHand.x /= 4;
 				centerOfBigHand.y /= 4;
 				if (isPointInCircle(centerOfBigHand)){
-					cout << "centerOfBigHand: ";
-					cout << centerOfBigHand << endl;
-					cout << "quadarea " << contourArea(Mat(approx)) << endl;
-					cout << "auswahlradius: " << auswahlRadius << endl;
-					cout << endl;
 					bigHandPosition = centerOfBigHand;
 				}
 			}
@@ -171,11 +160,6 @@ void ClockFilterImpl::process(const cv::Mat& input)
 				centerOfSmallHand.x /= 4;
 				centerOfSmallHand.y /= 4;
 				if (isPointInCircle(centerOfSmallHand)){
-					cout << "centerOfSmallHand: ";
-					cout << centerOfSmallHand << endl;
-					cout << "quadarea " << contourArea(Mat(approx)) << endl;
-					cout << "auswahlradius: " << auswahlRadius << endl;
-					cout << endl;
 					smallHandPosition = centerOfSmallHand;
 				}
 			}
