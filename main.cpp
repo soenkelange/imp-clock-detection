@@ -14,6 +14,7 @@ enum VideoSource {
 const cv::string& sourceWindow = "Source";
 const cv::string& outputWindow = "Output";
 
+int readCameraSelection();
 VideoSource readVideoSource();
 cv::string readVideoFilename();
 
@@ -22,7 +23,8 @@ int main(int argc, char *argv[])
     VideoSource videoSource = readVideoSource();
     cv::VideoCapture videoCapture;
     if (videoSource == CAMERA) {
-        videoCapture = cv::VideoCapture(0);
+        int camera = readCameraSelection();
+        videoCapture = cv::VideoCapture(camera);
     } else if (videoSource == VIDEO_FILE) {
         cv::string filename = readVideoFilename();
         videoCapture = cv::VideoCapture(filename);
@@ -94,6 +96,14 @@ int main(int argc, char *argv[])
     delete timeCalculator;
     delete timeOutput;
 	return 0;
+}
+
+int readCameraSelection()
+{
+    int selectedCamera = 0;
+    std::cout << "Please enter the camera number or use default one:" << std::endl;
+    std::cin >> selectedCamera;
+    return selectedCamera;
 }
 
 VideoSource readVideoSource()
