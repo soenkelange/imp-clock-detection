@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0013B5B11C51052E00641155 /* ClockFilterImpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0013B5AF1C51052E00641155 /* ClockFilterImpl.cpp */; };
+		0079E1C21C51B2AD00B1B455 /* TimeTextOutput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0079E1C01C51B2AD00B1B455 /* TimeTextOutput.cpp */; };
 		00E03D611C4D81D400213F72 /* StupidClockFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00E03D5F1C4D81D400213F72 /* StupidClockFilter.cpp */; };
 		00E03D651C4D856700213F72 /* TimeLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00E03D631C4D856700213F72 /* TimeLogger.cpp */; };
 		00FC79071C39731100160B80 /* libopencv_calib3d.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FC78F51C39731100160B80 /* libopencv_calib3d.2.4.12.dylib */; };
@@ -80,6 +81,8 @@
 		0013B5AF1C51052E00641155 /* ClockFilterImpl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ClockFilterImpl.cpp; path = ../src/ClockFilterImpl.cpp; sourceTree = "<group>"; };
 		0013B5B01C51052E00641155 /* ClockFilterImpl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ClockFilterImpl.hpp; path = ../src/ClockFilterImpl.hpp; sourceTree = "<group>"; };
 		003D13A81C39722C00E6F2D2 /* imp-clock-detection */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "imp-clock-detection"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0079E1C01C51B2AD00B1B455 /* TimeTextOutput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimeTextOutput.cpp; path = ../src/TimeTextOutput.cpp; sourceTree = "<group>"; };
+		0079E1C11C51B2AD00B1B455 /* TimeTextOutput.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TimeTextOutput.hpp; path = ../src/TimeTextOutput.hpp; sourceTree = "<group>"; };
 		00E03D5F1C4D81D400213F72 /* StupidClockFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StupidClockFilter.cpp; path = ../src/StupidClockFilter.cpp; sourceTree = "<group>"; };
 		00E03D601C4D81D400213F72 /* StupidClockFilter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = StupidClockFilter.hpp; path = ../src/StupidClockFilter.hpp; sourceTree = "<group>"; };
 		00E03D621C4D84F800213F72 /* TimeOutput.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TimeOutput.hpp; path = ../src/TimeOutput.hpp; sourceTree = "<group>"; };
@@ -218,6 +221,8 @@
 				00E03D621C4D84F800213F72 /* TimeOutput.hpp */,
 				00E03D631C4D856700213F72 /* TimeLogger.cpp */,
 				00E03D641C4D856700213F72 /* TimeLogger.hpp */,
+				0079E1C01C51B2AD00B1B455 /* TimeTextOutput.cpp */,
+				0079E1C11C51B2AD00B1B455 /* TimeTextOutput.hpp */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -314,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00FC791A1C39731D00160B80 /* main.cpp in Sources */,
+				0079E1C21C51B2AD00B1B455 /* TimeTextOutput.cpp in Sources */,
 				00E03D611C4D81D400213F72 /* StupidClockFilter.cpp in Sources */,
 				00FC792C1C397A7E00160B80 /* Time.cpp in Sources */,
 				00E03D651C4D856700213F72 /* TimeLogger.cpp in Sources */,

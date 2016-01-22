@@ -14,7 +14,7 @@
 class TimeLogger : public TimeOutput
 {
     ~TimeLogger();
-    void output(const Time& time);
+    void output(cv::Mat& output, const Time& time);
 };
 
 #endif /* TimeLogger_hpp */

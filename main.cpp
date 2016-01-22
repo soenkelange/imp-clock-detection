@@ -1,6 +1,6 @@
 #include "ClockFilterImpl.hpp"
 #include "TimeCalculator.hpp"
-#include "TimeLogger.hpp"
+#include "TimeTextOutput.hpp"
 
 #include <opencv/cv.h>
 #include <opencv2/highgui/highgui.hpp>
@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
     
     ClockFilter* filter = new ClockFilterImpl;
     TimeCalculator* timeCalculator = new TimeCalculator();
-    TimeOutput* timeOutput = new TimeLogger(); // TODO: Add correct TimeOutput here
+    TimeOutput* timeOutput = new TimeTextOutput;
     
     
     bool paused = false;
@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
             }
             
             // output time
-            timeOutput->output(time);
+            timeOutput->output(outputFrame, time);
             
             cv::imshow(sourceWindow, inputFrame);
             cv::imshow(outputWindow, outputFrame);

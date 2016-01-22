@@ -10,13 +10,14 @@
 #define TimeOutput_h
 
 #include "Time.hpp"
+#include <opencv/cv.h>
 
 
 class TimeOutput
 {
 public:
     virtual ~TimeOutput() {};
-    virtual void output(const Time& time) = 0;
+    virtual void output(cv::Mat& output, const Time& time) = 0;
 };
 
 #endif /* TimeOutput_h */

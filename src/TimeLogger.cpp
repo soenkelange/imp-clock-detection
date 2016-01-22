@@ -14,7 +14,7 @@ TimeLogger::~TimeLogger()
 {
 }
 
-void TimeLogger::output(const Time &time)
+void TimeLogger::output(cv::Mat& output, const Time &time)
 {
     std::cout << "It's " << time.getHour() << ":" << time.getMinute() << "!" << std::endl;
 }
